@@ -266,7 +266,7 @@ class ZMQChannelsHandler(AuthenticatedZMQStreamHandler):
             if replay_buffer:
                 self.log.info("Replaying %s buffered messages", len(replay_buffer))
                 for channel, msg_list in replay_buffer:
-                    stream = buffer_info['channels']
+                    stream = buffer_info['channels'][channel]
                     self._on_zmq_reply(stream, msg_list)
 
         try:
